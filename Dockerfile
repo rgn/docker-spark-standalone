@@ -1,7 +1,7 @@
 FROM alpine:3.11
 LABEL maintainer="Ralf Gnädinger <ralf.gnaedinger@gmail.com>"
 
-ARG spark_version="2.4.4"
+ARG spark_version="2.4.5"
 ARG hadoop_version="2.7"
 ARG scala_version="2.11.12"
 ARG sbt_version="1.3.12"
