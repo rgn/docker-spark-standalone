@@ -19,7 +19,8 @@ ENV PATH "$PATH:/spark/bin:/scala/bin:/sbt/bin"
 
 RUN apk update \
 	&& apk upgrade \
-	&& apk add openjdk8 bash tar
+	&& apk add openjdk8 bash tar libc6-compat snappy \
+	ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
 RUN wget --no-verbose https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -O /tmp/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
 	&& tar xzf /tmp/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
