@@ -5,17 +5,21 @@ ARG spark_version="3.0.1"
 ARG hadoop_version="2.7"
 ARG scala_version="2.11.12"
 ARG sbt_version="1.3.12"
+ARG avro_tools_version="1.9.2"
 
 ENV SPARK_VERSION=${spark_version}
 ENV HADOOP_VERSION=${hadoop_version}
 ENV SCALA_VERSION=${scala_version}
 ENV SBT_VERSION=${sbt_version}
+ENV AVRO_TOOLS_VERSION=${avro_tools_version}
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
 ENV SPARK_HOME /spark
 ENV SCALA_HOME /scala
 ENV SBT_HOME /scala
 ENV PATH "$PATH:/spark/bin:/scala/bin:/sbt/bin"
+
+COPY ./payload /
 
 RUN apk update \
 	&& apk upgrade \
@@ -36,3 +40,10 @@ RUN wget --no-verbose https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-
 RUN wget --no-verbose https://piccolo.link/sbt-$SBT_VERSION.tgz -O /tmp/sbt-$SBT_VERSION.tgz \
 	&& tar xzf /tmp/sbt-$SBT_VERSION.tgz \
 	&& rm /tmp/sbt-$SBT_VERSION.tgz
+
+RUN wget --no-verbose https://repo1.maven.org/maven2/org/apache/avro/avro-tools/$AVRO_TOOLS_VERSION/avro-tools-$AVRO_TOOLS_VERSION.jar -O /opt/avro-tools.jar \
+	&& chmod +x /usr/local/bin/avro-tools
+
+ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["spark-shell"]
