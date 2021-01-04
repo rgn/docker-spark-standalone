@@ -3,6 +3,8 @@
 Docker images to for a local spark node for development purpose.
 
 Currently supported versions:
+* Spark 3.0.1 for Hadoop 2.7+ with OpenJDK 8
+* Spark 2.4.7 for Hadoop 2.7+ with OpenJDK 8
 * Spark 2.4.6 for Hadoop 2.7+ with OpenJDK 8
 * Spark 2.4.5 for Hadoop 2.7+ with OpenJDK 8
 * Spark 2.4.4 for Hadoop 2.7+ with OpenJDK 8
