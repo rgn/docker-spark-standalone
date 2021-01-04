@@ -55,9 +55,9 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          build-args:
-            spark_version: ${{ github.event.inputs.spark_version }}
-            hadoop_version: ${{ github.event.inputs.hadoop_version }}
-            scala_version: ${{ github.event.inputs.scala_version }}
-            sbt_version: ${{ github.event.inputs.sbt_version }}
+          build-args: |
+            spark_version=${{ github.event.inputs.spark_version }}
+            hadoop_version=${{ github.event.inputs.hadoop_version }}
+            scala_version=${{ github.event.inputs.scala_version }}
+            sbt_version=${{ github.event.inputs.sbt_version }}
           tags: tvdgnr/spark-standalone:${{ github.event.inputs.image_tag }}
