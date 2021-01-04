@@ -44,6 +44,6 @@ RUN wget --no-verbose https://piccolo.link/sbt-$SBT_VERSION.tgz -O /tmp/sbt-$SBT
 RUN wget --no-verbose https://repo1.maven.org/maven2/org/apache/avro/avro-tools/$AVRO_TOOLS_VERSION/avro-tools-$AVRO_TOOLS_VERSION.jar -O /opt/avro-tools.jar \
 	&& chmod +x /usr/local/bin/avro-tools
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["spark-shell"]
