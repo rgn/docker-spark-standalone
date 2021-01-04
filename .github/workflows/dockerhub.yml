@@ -12,6 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       spark_version:
+        default: '3.0.1'
         description: 'Spark Version'
       hadoop_version:
         default: '2.7'
