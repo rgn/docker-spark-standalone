@@ -13,7 +13,7 @@ Currently supported versions:
 To start a Spark node:
 
 ``` bash
-docker run -ti ragn/spark-standalone:<tag> /bin/bash
+docker run -ti tvdgnr/spark-standalone:<tag> /bin/bash
 ```
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tvdgnr/docker-spark-standalone/CI%20to%20Docker%20Hub?style=plastic)
