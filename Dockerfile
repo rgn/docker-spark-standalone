@@ -24,6 +24,7 @@ COPY ./payload /
 RUN apk update \
 	&& apk upgrade \
 	&& apk add openjdk8 bash tar libc6-compat snappy
+	&& chmod +x /entrypoint.sh
 
 RUN ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
