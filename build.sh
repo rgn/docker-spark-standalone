@@ -1,6 +1,6 @@
 docker build -t tvdgnr/spark-standalone:3.0.1 -t tvdgnr/spark-standalone:latest \
 --build-arg spark_version=3.0.1 \
---build-arg scala_version=2.12.10 \
+--build-arg scala_version=2.12.12 \
 --no-cache .
 
 docker push tvdgnr/spark-standalone:3.0.1
